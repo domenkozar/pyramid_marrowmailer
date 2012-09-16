@@ -7,7 +7,7 @@ if `transaction`.commit() succeeded.
 INSTALL
 =======
 
-As always::
+::
 
     $ env/bin/easy_install pyramid_marrowmailer
 
@@ -40,6 +40,7 @@ You can accces `pyramid_marrowmailer.TransactionMailer` instance in two ways::
     message = mailer.new()
     message.send()
 
+
 Or::
     
     from pyramid_marrowmailer import get_mailer
@@ -47,13 +48,31 @@ Or::
     message = mailer.new()
     message.send()
 
+
 EXAMPLE
 =======
+
+If we have paster `.ini` something like::
+
+    mail.transport.use = smtp
+    mail.message.author = foobar@foo.com
+
+
+Inside a view, we can do::
+
+    mailer = request.mailer
+    message = mailer.new()
+    message.subject = "foobar2"
+    message.to = "foobar2@bar.com"
+    message.plain = "hi"
+    message.send()
+
 
 TESTING
 =======
 
 ::
+
     $ pip install nose coverage pep8 setuptools-flakes
     $ ./pre-commit-check.sh
 
