@@ -1,0 +1,2 @@
+graft src/pyramid_marrowmailer
+include *.cfg *.rst *.in LICENSE
