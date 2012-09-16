@@ -15,8 +15,7 @@ setup(name='pyramid_marrowmailer',
       description='Pyramid integration package for marrow.mailer,'
         ' formerly known as TurboMail',
       long_description=read('README.rst') +
-                       read('HISTORY.rst') +
-                       read('LICENSE'),
+                       read('HISTORY.rst'),
       classifiers=[
           "Programming Language :: Python",
           "Framework :: Pyramid",
