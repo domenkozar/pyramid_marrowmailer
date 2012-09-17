@@ -1,7 +1,7 @@
 Pyramid integration package for "A highly efficient and modular mail delivery
 framework for Python 2.6+ and 3.1+, formerly TurboMail."
 
-Currently it must be used with ``pyramid_tm``, as ``Mailer.send`` only works
+Currently it must be used with ``pyramid_tm``, as ``.send()`` only works
 if ``transaction``.commit() succeeded.
 
 INSTALL
@@ -32,12 +32,12 @@ Options that need to be converted to integer, add ``int`` suffix. For example
 is called. ``atexit`` is used to register ``Mailer.stop`` to shutdown when wsgi server will exit.
 
 Note that ``pyramid_marrowmailer`` subclasses ``marrow.mailer.Mailer`` to provide support for
-``transaction``. Class is importable from ``pyramid_marrowmailer.TransactionMailer``
+``transaction``. Class is importable from ``pyramid_marrowmailer.TransactionMailer``.
 
 You can accces ``pyramid_marrowmailer.TransactionMailer`` instance in two ways::
 
-    mailer = request.mailer
-    message = mailer.new()
+    message = request.mailer.new()
+    ...
     message.send()
 
 
@@ -46,6 +46,7 @@ Or::
     from pyramid_marrowmailer import get_mailer
     mailer = get_mailer(request)
     message = mailer.new()
+    ...
     message.send()
 
 
@@ -60,8 +61,7 @@ If we have paster ``.ini`` something like::
 
 Inside a view, we can do::
 
-    mailer = request.mailer
-    message = mailer.new()
+    message = request.mailer.new()
     message.subject = "foobar2"
     message.to = "foobar2@bar.com"
     message.plain = "hi"
