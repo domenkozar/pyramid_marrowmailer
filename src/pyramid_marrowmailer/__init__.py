@@ -80,7 +80,7 @@ def includeme(config):
         mailer_config[manager] = 'immediate'
 
     mode = '%s.mode' % prefix
-    if mailer_config[mode] == 'direct':
+    if mailer_config.get(mode) == 'direct':
     	mailer = Mailer(mailer_config, prefix)
     else:
 	mailer = TransactionMailer(mailer_config, prefix)
