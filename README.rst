@@ -55,9 +55,9 @@ EXAMPLE
 
 If we have paster ``.ini`` something like::
 
+    mail.mode = direct or transaction
     mail.transport.use = smtp
     mail.message.author = foobar@foo.com
-
 
 Inside a view, we can do::
 
@@ -80,5 +80,4 @@ TESTING
 TODO
 ====
 
-- Add support to use ``marrow.mailer`` without usage of ``transaction``
 

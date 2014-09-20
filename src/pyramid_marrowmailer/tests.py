@@ -69,6 +69,33 @@ class includemeTest(BaseFunctionalTest):
         self.assertEqual(get_mailer(self.request).config['transport.use'],
                          'smtp')
 
+class directTest(BaseFunctionalTest):
+    def configure(self):
+        settings = self.config.registry.settings
+        settings['mail.mode'] = 'direct'
+        settings['mail.transport.use'] = 'logging'
+        settings['mail.message.author'] = 'foobar@foo.com'
+        self.config.include('pyramid_marrowmailer')
+
+        logging.basicConfig()
+        root_logger = logging.getLogger()
+        self.handler = ListHandler()
+        self.handler.reset()
+        root_logger.addHandler(self.handler)
+
+    def test_send(self):
+        self.configure()
+        from pyramid_marrowmailer import get_mailer
+        mailer = get_mailer(self.request)
+
+	message = mailer.new()
+	message.subject = "foobar"
+	message.to = "foobar@bar.com"
+	message.plain = "hi"
+	message.send()
+	self.assertEqual(self.handler.info, [])
+
+        self.assertTrue('DELIVER' in self.handler.info[1])
 
 class transactionTest(BaseFunctionalTest):
     def configure(self):

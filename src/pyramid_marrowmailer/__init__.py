@@ -79,7 +79,12 @@ def includeme(config):
     if manager not in mailer_config:
         mailer_config[manager] = 'immediate'
 
-    mailer = TransactionMailer(mailer_config, prefix)
+    mode = '%s.mode' % prefix
+    if mailer_config.get(mode) == 'direct':
+    	mailer = Mailer(mailer_config, prefix)
+    else:
+	mailer = TransactionMailer(mailer_config, prefix)
+
     mailer.start()
 
     config.registry.registerUtility(mailer, IMarrowMailer)
