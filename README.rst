@@ -75,9 +75,3 @@ TESTING
 
     $ pip install nose coverage pep8 setuptools-flakes
     $ ./pre-commit-check.sh
-
-
-TODO
-====
-
-
