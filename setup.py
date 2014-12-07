@@ -5,6 +5,8 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 
+from codecs import open # To use a consistent encoding
+
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
