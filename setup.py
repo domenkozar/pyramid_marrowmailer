@@ -5,9 +5,11 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 
+from codecs import open # To use a consistent encoding
+
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    return open(os.path.join(os.path.dirname(__file__), *rnames), encoding='utf-8').read()
 
 
 setup(name='pyramid_marrowmailer',

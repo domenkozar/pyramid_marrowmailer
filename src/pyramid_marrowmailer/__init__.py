@@ -81,9 +81,9 @@ def includeme(config):
 
     mode = '%s.mode' % prefix
     if mailer_config.get(mode) == 'direct':
-    	mailer = Mailer(mailer_config, prefix)
+        mailer = Mailer(mailer_config, prefix)
     else:
-	mailer = TransactionMailer(mailer_config, prefix)
+        mailer = TransactionMailer(mailer_config, prefix)
 
     mailer.start()
 
