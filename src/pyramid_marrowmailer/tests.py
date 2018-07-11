@@ -88,12 +88,12 @@ class directTest(BaseFunctionalTest):
         from pyramid_marrowmailer import get_mailer
         mailer = get_mailer(self.request)
 
-	message = mailer.new()
-	message.subject = "foobar"
-	message.to = "foobar@bar.com"
-	message.plain = "hi"
-	message.send()
-	self.assertEqual(self.handler.info, [])
+        message = mailer.new()
+        message.subject = "foobar"
+        message.to = "foobar@bar.com"
+        message.plain = "hi"
+        message.send()
+        self.assertEqual(self.handler.info, [])
 
         self.assertTrue('DELIVER' in self.handler.info[1])
 
