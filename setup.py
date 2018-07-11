@@ -13,7 +13,7 @@ def read(*rnames):
 
 
 setup(name='pyramid_marrowmailer',
-      version='0.2',
+      version='0.3.dev0',
       description='Pyramid integration package for marrow.mailer,'
         ' formerly known as TurboMail',
       long_description=read('README.rst') +
