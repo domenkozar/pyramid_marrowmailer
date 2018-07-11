@@ -2,7 +2,7 @@ Changelog
 =========
     
 
-0.2 (unreleased)
+0.2 (2018-07-11)
 ----------------
 
 - #2: mailer without use of transaction
