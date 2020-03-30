@@ -34,7 +34,7 @@ is called. ``atexit`` is used to register ``Mailer.stop`` to shutdown when wsgi 
 Note that ``pyramid_marrowmailer`` subclasses ``marrow.mailer.Mailer`` to provide support for
 ``transaction``. Class is importable from ``pyramid_marrowmailer.TransactionMailer``.
 
-You can accces ``pyramid_marrowmailer.TransactionMailer`` instance in two ways::
+You can access ``pyramid_marrowmailer.TransactionMailer`` instance in two ways::
 
     message = request.mailer.new()
     ...
